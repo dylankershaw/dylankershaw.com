@@ -1,0 +1,38 @@
+html {
+  font-size: 16px;
+  background-color: #fffffa; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: "Roboto Mono", monospace; }
+
+.links {
+  display: flex;
+  flex-direction: column; }
+  .links__link {
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+    color: #fffffa;
+    font-size: 3rem;
+    line-height: 1;
+    height: 3rem; }
+    .links__link:hover::after {
+      content: "";
+      background-color: #fffffa;
+      position: absolute;
+      opacity: 0.1;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0; }
+    .links__link--linkedin {
+      background-color: #2867b2; }
+    .links__link--github {
+      background-color: #24292e; }
+
+/*# sourceMappingURL=index.css.map */

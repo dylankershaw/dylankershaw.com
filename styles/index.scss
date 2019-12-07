@@ -1,0 +1,54 @@
+$primary: #fffffa;
+$secondary: #d1d1e9;
+$tertiary: #e45858;
+$button: #6246ea;
+$text: #2b2c34;
+
+html {
+  font-size: 16px;
+  background-color: $primary;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+
+  &__link {
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+    color: $primary;
+    font-size: 3rem;
+    line-height: 1;
+    height: 3rem;
+
+    &:hover::after {
+      content: "";
+      background-color: $primary;
+      position: absolute;
+      opacity: 0.1;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+
+    &--linkedin {
+      background-color: #2867b2;
+    }
+
+    &--github {
+      background-color: #24292e;
+    }
+  }
+}
