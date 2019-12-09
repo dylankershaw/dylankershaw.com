@@ -12,7 +12,6 @@ body {
 
 .links {
   display: flex;
-  margin-top: 10vh;
   flex-direction: column; }
   .links__link {
     text-decoration: none;
