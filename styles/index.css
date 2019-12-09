@@ -13,6 +13,13 @@ body {
 .links {
   display: flex;
   flex-direction: column; }
+  .links--vertically-centered {
+    height: fit-content;
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    bottom: 0;
+    top: 0; }
   .links__link {
     text-decoration: none;
     position: relative;

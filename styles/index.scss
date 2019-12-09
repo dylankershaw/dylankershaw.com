@@ -21,8 +21,16 @@ body {
 
 .links {
   display: flex;
-  margin-top: 10vh;
   flex-direction: column;
+
+  &--vertically-centered {
+    height: fit-content;
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    bottom: 0;
+    top: 0;
+  }
 
   &__link {
     text-decoration: none;
