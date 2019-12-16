@@ -1,4 +1,4 @@
-$font: "Roboto Mono", monospace;
+$font: 'Roboto Mono', monospace;
 $primary: #fffffa;
 $secondary: #d1d1e9;
 $tertiary: #e45858;
@@ -77,34 +77,34 @@ body {
       bottom: 0;
       top: 0;
     }
+  }
 
-    &__link {
-      text-decoration: none;
-      position: relative;
-      text-align: center;
-      color: $primary;
-      font-size: 3rem;
-      line-height: 1;
-      height: 3rem;
+  &__link {
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+    color: $primary;
+    font-size: 3rem;
+    line-height: 1;
+    height: 3rem;
 
-      &:hover::after {
-        content: "";
-        background-color: $primary;
-        position: absolute;
-        opacity: 0.1;
-        height: 100%;
-        width: 100%;
-        left: 0;
-        top: 0;
-      }
+    &:hover::after {
+      content: '';
+      background-color: $primary;
+      position: absolute;
+      opacity: 0.1;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
 
-      &--linkedin {
-        background-color: #2867b2;
-      }
+    &--linkedin {
+      background-color: #2867b2;
+    }
 
-      &--github {
-        background-color: #24292e;
-      }
+    &--github {
+      background-color: #24292e;
     }
   }
 

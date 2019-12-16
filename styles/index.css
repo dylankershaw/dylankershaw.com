@@ -54,27 +54,27 @@ body {
       width: 100%;
       bottom: 0;
       top: 0; }
-    .main-page__links__link {
-      text-decoration: none;
-      position: relative;
-      text-align: center;
-      color: #fffffa;
-      font-size: 3rem;
-      line-height: 1;
-      height: 3rem; }
-      .main-page__links__link:hover::after {
-        content: "";
-        background-color: #fffffa;
-        position: absolute;
-        opacity: 0.1;
-        height: 100%;
-        width: 100%;
-        left: 0;
-        top: 0; }
-      .main-page__links__link--linkedin {
-        background-color: #2867b2; }
-      .main-page__links__link--github {
-        background-color: #24292e; }
+  .main-page__link {
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+    color: #fffffa;
+    font-size: 3rem;
+    line-height: 1;
+    height: 3rem; }
+    .main-page__link:hover::after {
+      content: '';
+      background-color: #fffffa;
+      position: absolute;
+      opacity: 0.1;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0; }
+    .main-page__link--linkedin {
+      background-color: #2867b2; }
+    .main-page__link--github {
+      background-color: #24292e; }
   .main-page__do-not-press-button {
     animation: FADE-IN 1.5s 4s both;
     transform: translateX(-50%);
