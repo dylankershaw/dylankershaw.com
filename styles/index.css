@@ -1,45 +1,129 @@
+@-webkit-keyframes FADE-IN {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes FADE-IN {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 html {
   font-size: 16px;
-  background-color: #fffffa; }
+  background-color: #fffffa;
+}
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
 body {
-  font-family: "Roboto Mono", monospace; }
-
-.links {
+  font-family: "Roboto Mono", monospace;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column; }
-  .links--vertically-centered {
-    height: fit-content;
-    position: absolute;
-    margin: auto;
-    width: 100%;
-    bottom: 0;
-    top: 0; }
-  .links__link {
-    text-decoration: none;
-    position: relative;
-    text-align: center;
-    color: #fffffa;
-    font-size: 3rem;
-    line-height: 1;
-    height: 3rem; }
-    .links__link:hover::after {
-      content: "";
-      background-color: #fffffa;
-      position: absolute;
-      opacity: 0.1;
-      height: 100%;
-      width: 100%;
-      left: 0;
-      top: 0; }
-    .links__link--linkedin {
-      background-color: #2867b2; }
-    .links__link--github {
-      background-color: #24292e; }
+}
 
+.circle {
+  border: 1px solid black;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  text-align: center;
+  height: 5rem;
+  width: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: none;
+  font-family: "Roboto Mono", monospace;
+}
+
+.circle:focus {
+  outline: none;
+}
+
+.main-page {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.main-page__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main-page__links--vertically-centered {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  bottom: 0;
+  top: 0;
+}
+
+.main-page__link {
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+  color: #fffffa;
+  font-size: 3rem;
+  line-height: 1;
+  height: 3rem;
+}
+
+.main-page__link:hover::after {
+  content: '';
+  background-color: #fffffa;
+  position: absolute;
+  opacity: 0.1;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.main-page__link--linkedin {
+  background-color: #2867b2;
+}
+
+.main-page__link--github {
+  background-color: #24292e;
+}
+
+.main-page__do-not-press-button {
+  -webkit-animation: FADE-IN 1.5s 4s both;
+          animation: FADE-IN 1.5s 4s both;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+}
+
+.main-page__do-not-press-button:hover {
+  cursor: pointer;
+  border-width: 1.5px;
+  text-decoration: line-through;
+}
 /*# sourceMappingURL=index.css.map */

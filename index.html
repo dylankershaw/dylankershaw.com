@@ -7,10 +7,12 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap"
     />
     <link rel="stylesheet" href="./styles/index.css" />
+    <script async defer src="./scripts/index.js"></script>
+    <script async defer  src="https://unpkg.com/easy-scroll"></script>
 
     <title>Dylan Kershaw</title>
     <meta
@@ -21,21 +23,32 @@
 
   <body>
     <main>
-      <section class="links links--vertically-centered">
-        <a
-          class="links__link links__link--linkedin"
-          href="https://www.linkedin.com/in/dylankershaw/"
-          target="_blank"
-          rel="noreferrer"
-          >LinkedIn</a
+      <section class="main-page main-page--center">
+        <div
+          class="main-page__links main-page__links--vertically-centered"
+          role="links"
         >
-        <a
-          class="links__link links__link--github"
-          href="https://github.com/dylankershaw/"
-          target="_blank"
-          rel="noreferrer"
-          >GitHub</a
+          <a
+            class="main-page__link main-page__link--linkedin"
+            href="https://www.linkedin.com/in/dylankershaw/"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub</a
+          >
+          <a
+            class="main-page__link main-page__link--github"
+            href="https://github.com/dylankershaw/"
+            target="_blank"
+            rel="noreferrer"
+            >LinkedIn</a
+          >
+        </div>
+        <button
+          class="circle main-page__do-not-press-button"
+          onClick="trippyScroll()"
         >
+          Do Not Press
+        </button>
       </section>
     </main>
   </body>

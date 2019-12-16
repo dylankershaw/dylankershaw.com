@@ -1,8 +1,18 @@
+$font: 'Roboto Mono', monospace;
 $primary: #fffffa;
 $secondary: #d1d1e9;
 $tertiary: #e45858;
 $button: #6246ea;
 $text: #2b2c34;
+
+@keyframes FADE-IN {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 html {
   font-size: 16px;
@@ -16,20 +26,43 @@ html {
 }
 
 body {
-  font-family: "Roboto Mono", monospace;
+  font-family: $font;
+  display: flex;
 }
 
-.links {
+.circle {
+  border: 1px solid black;
+  justify-content: center;
+  border-radius: 50%;
+  text-align: center;
+  height: 5rem;
+  width: 5rem;
   display: flex;
-  flex-direction: column;
+  background: none;
+  font-family: $font;
 
-  &--vertically-centered {
-    height: fit-content;
-    position: absolute;
-    margin: auto;
-    width: 100%;
-    bottom: 0;
-    top: 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+.main-page {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+
+    &--vertically-centered {
+      height: fit-content;
+      position: absolute;
+      margin: auto;
+      width: 100%;
+      bottom: 0;
+      top: 0;
+    }
   }
 
   &__link {
@@ -42,7 +75,7 @@ body {
     height: 3rem;
 
     &:hover::after {
-      content: "";
+      content: '';
       background-color: $primary;
       position: absolute;
       opacity: 0.1;
@@ -58,6 +91,20 @@ body {
 
     &--github {
       background-color: #24292e;
+    }
+  }
+
+  &__do-not-press-button {
+    animation: FADE-IN 1.5s 4s both;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+
+    &:hover {
+      cursor: pointer;
+      border-width: 1.5px;
+      text-decoration: line-through;
     }
   }
 }
