@@ -27,4 +27,6 @@ async function trippyScroll() {
   document.querySelectorAll('.main-page').forEach((el, i) => {
     if (i > 0) el.remove();
   });
+
+  // TODO: land on a new page
 }
