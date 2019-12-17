@@ -1,3 +1,10 @@
+window.addEventListener('load', setVh);
+
+function setVh() {
+  const vh = window.innerHeight;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
 const asyncTimeout = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 async function trippyScroll() {
