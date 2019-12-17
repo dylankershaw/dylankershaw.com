@@ -1,5 +1,4 @@
 window.addEventListener('load', setVh);
-window.addEventListener('resize', setVh);
 
 function setVh() {
   const vh = window.innerHeight * 0.01;
