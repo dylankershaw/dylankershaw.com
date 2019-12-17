@@ -119,6 +119,7 @@ body {
   position: absolute;
   bottom: 1rem;
   left: 50%;
+  font-size: 12px;
 }
 
 .main-page__do-not-press-button:hover {
