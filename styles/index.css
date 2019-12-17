@@ -56,7 +56,7 @@ body {
 }
 
 .main-page {
-  height: calc(var(--vh, vh) * 100);
+  height: 100vh;
   width: 100vw;
   position: relative;
 }
