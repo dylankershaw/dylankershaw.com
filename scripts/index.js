@@ -24,12 +24,12 @@ async function trippyScroll() {
   easyScroll({
     scrollableDomEle: window,
     direction: 'bottom',
-    duration: 10000,
+    duration: 8000,
     easingPreset: 'easeInOutQuad',
     scrollAmount: document.body.scrollHeight
   });
 
-  await asyncTimeout(10000);
+  await asyncTimeout(8000);
 
   document.querySelectorAll('.main-page').forEach((el, i) => {
     if (i > 0) el.remove();
