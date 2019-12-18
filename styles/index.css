@@ -18,7 +18,7 @@
 
 html {
   font-size: 16px;
-  background-color: #fffffa;
+  background-color: #120e14;
 }
 
 * {
@@ -29,30 +29,10 @@ html {
 }
 
 body {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Fira Mono", monospace;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.circle {
-  border: 1px solid black;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 50%;
-  text-align: center;
-  height: 5rem;
-  width: 5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background: none;
-  font-family: "Roboto Mono", monospace;
-}
-
-.circle:focus {
-  outline: none;
 }
 
 .main-page {
@@ -65,6 +45,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-left: 15%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -76,39 +57,62 @@ body {
   height: -moz-fit-content;
   height: fit-content;
   position: absolute;
-  margin: auto;
-  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
   bottom: 0;
   top: 0;
 }
 
 .main-page__link {
   text-decoration: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   position: relative;
-  text-align: center;
-  color: #fffffa;
+  color: #b9b4a9;
   font-size: 3rem;
   line-height: 1;
   height: 3rem;
+  margin-top: 0.5rem;
 }
 
-.main-page__link:hover::after {
+.main-page__link::before {
   content: '';
-  background-color: #fffffa;
+  height: 0;
+  -webkit-transition: height 0.25s;
+  transition: height 0.25s;
+}
+
+.main-page__link:hover::before {
   position: absolute;
-  opacity: 0.1;
+  opacity: 0.9;
   height: 100%;
   width: 100%;
-  left: 0;
-  top: 0;
+  z-index: -1;
+  left: -0.25rem;
+  bottom: -0.5rem;
+  padding: 0.25rem 0.25rem;
+  background-color: #00AA00;
 }
 
-.main-page__link--linkedin {
-  background-color: #2867b2;
+.main-page .circle {
+  border: 1px solid #b9b4a9;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  text-align: center;
+  height: 5rem;
+  width: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: none;
+  font-family: "Fira Mono", monospace;
 }
 
-.main-page__link--github {
-  background-color: #24292e;
+.main-page .circle:focus {
+  outline: none;
 }
 
 .main-page__do-not-press-button {
@@ -120,6 +124,7 @@ body {
   bottom: 1rem;
   left: 50%;
   font-size: 12px;
+  color: #b9b4a9;
 }
 
 .main-page__do-not-press-button:hover {

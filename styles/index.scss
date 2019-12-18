@@ -1,9 +1,7 @@
-$font: 'Roboto Mono', monospace;
-$primary: #fffffa;
-$secondary: #d1d1e9;
-$tertiary: #e45858;
-$button: #6246ea;
-$text: #2b2c34;
+$font: 'Fira Mono', monospace;
+$terminal-green: #00AA00;
+$dusty-black: #120e14;
+$off-white: #b9b4a9;
 
 @keyframes FADE-IN {
   0% {
@@ -16,7 +14,7 @@ $text: #2b2c34;
 
 html {
   font-size: 16px;
-  background-color: $primary;
+  background-color: $dusty-black;
 }
 
 * {
@@ -30,22 +28,6 @@ body {
   display: flex;
 }
 
-.circle {
-  border: 1px solid black;
-  justify-content: center;
-  border-radius: 50%;
-  text-align: center;
-  height: 5rem;
-  width: 5rem;
-  display: flex;
-  background: none;
-  font-family: $font;
-
-  &:focus {
-    outline: none;
-  }
-}
-
 .main-page {
   height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
@@ -53,13 +35,14 @@ body {
 
   &__links {
     display: flex;
+    margin-left: 15%;
     flex-direction: column;
 
     &--vertically-centered {
       height: fit-content;
       position: absolute;
-      margin: auto;
-      width: 100%;
+      margin-top: auto;
+      margin-bottom: auto;
       bottom: 0;
       top: 0;
     }
@@ -67,30 +50,46 @@ body {
 
   &__link {
     text-decoration: none;
+    width: fit-content;
     position: relative;
-    text-align: center;
-    color: $primary;
+    color: $off-white;
     font-size: 3rem;
     line-height: 1;
     height: 3rem;
+    margin-top: 0.5rem;
 
-    &:hover::after {
+    &::before {
       content: '';
-      background-color: $primary;
+      height: 0;
+      transition: height 0.25s;
+    }
+
+    &:hover::before {
       position: absolute;
-      opacity: 0.1;
+      opacity: 0.9;
       height: 100%;
       width: 100%;
-      left: 0;
-      top: 0;
+      z-index: -1;
+      left: -0.25rem;
+      bottom: -0.5rem;
+      padding: 0.25rem 0.25rem;
+      background-color: $terminal-green;
     }
+  }
 
-    &--linkedin {
-      background-color: #2867b2;
-    }
-
-    &--github {
-      background-color: #24292e;
+  .circle {
+    border: 1px solid $off-white;
+    justify-content: center;
+    border-radius: 50%;
+    text-align: center;
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    background: none;
+    font-family: $font;
+  
+    &:focus {
+      outline: none;
     }
   }
 
@@ -101,6 +100,7 @@ body {
     bottom: 1rem;
     left: 50%;
     font-size: 12px;
+    color: $off-white;
 
     &:hover {
       cursor: pointer;
