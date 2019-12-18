@@ -17,7 +17,7 @@ async function trippyScroll() {
     appendEl(n - 1);
   }
 
-  appendEl(50);
+  appendEl(40);
 
   await asyncTimeout(250);
 
