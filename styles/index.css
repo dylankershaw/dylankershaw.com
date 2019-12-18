@@ -16,6 +16,30 @@
   }
 }
 
+@-webkit-keyframes BLINK-CURSOR {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes BLINK-CURSOR {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 html {
   font-size: 16px;
   background-color: #120e14;
@@ -37,15 +61,15 @@ body {
 
 .main-page {
   height: calc(var(--vh, 1vh) * 100);
-  width: 100vw;
   position: relative;
+  padding-left: 15%;
+  width: 100vw;
 }
 
 .main-page__links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 15%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -92,44 +116,39 @@ body {
   left: -0.25rem;
   bottom: -0.5rem;
   padding: 0.25rem 0.25rem;
-  background-color: #00AA00;
-}
-
-.main-page .circle {
-  border: 1px solid #b9b4a9;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 50%;
-  text-align: center;
-  height: 5rem;
-  width: 5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background: none;
-  font-family: "Fira Mono", monospace;
-}
-
-.main-page .circle:focus {
-  outline: none;
+  background-color: #00aa00;
 }
 
 .main-page__do-not-press-button {
   -webkit-animation: FADE-IN 1.5s 4s both;
           animation: FADE-IN 1.5s 4s both;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  font-family: "Fira Mono", monospace;
   position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  font-size: 12px;
   color: #b9b4a9;
+  background: none;
+  font-size: 1rem;
+  border: none;
+  bottom: 1rem;
+}
+
+.main-page__do-not-press-button:focus {
+  outline: none;
 }
 
 .main-page__do-not-press-button:hover {
   cursor: pointer;
-  border-width: 1.5px;
   text-decoration: line-through;
+}
+
+.main-page__do-not-press-button::after {
+  content: '';
+  height: 100%;
+  width: 0.5rem;
+  background-color: #00aa00;
+  -webkit-animation: BLINK-CURSOR 2s infinite both;
+          animation: BLINK-CURSOR 2s infinite both;
+  position: absolute;
+  right: -0.75rem;
+  top: 0;
 }
 /*# sourceMappingURL=index.css.map */
