@@ -14,6 +14,10 @@ function triggerKeyboardOnMobile() {
   if (event.target.tagName !== 'A') input.focus();
 }
 
+function closeKeyboardOnMobile() {
+  if (event.key === "Enter") event.target.blur()
+}
+
 function handleKeyDown(key) {
   const input = document.getElementsByClassName(
     'main-page__command-line-input'
