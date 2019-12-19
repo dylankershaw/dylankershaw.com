@@ -124,4 +124,10 @@ body {
     bottom: 2rem;
     left: 1rem;
   }
+
+  &__dummy-input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
 }

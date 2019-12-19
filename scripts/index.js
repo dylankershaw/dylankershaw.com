@@ -1,5 +1,6 @@
 window.addEventListener('load', setVh);
-document.addEventListener('keydown', handleKeyDown);
+document.addEventListener('keydown', () => handleKeyDown(event.key));
+document.addEventListener('click', triggerKeyboardOnMobile);
 
 function setVh() {
   const vh = window.innerHeight * 0.01;
@@ -8,12 +9,17 @@ function setVh() {
 
 const asyncTimeout = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-function handleKeyDown() {
+function triggerKeyboardOnMobile() {
+  const input = document.getElementsByClassName('main-page__dummy-input')[0];
+  if (event.target.tagName !== 'A') input.focus();
+}
+
+function handleKeyDown(key) {
   const input = document.getElementsByClassName(
     'main-page__command-line-input'
   )[0];
 
-  switch (event.key) {
+  switch (key) {
     case 'Backspace':
       input.innerText = input.innerText.slice(0, input.innerText.length - 1);
       break;
@@ -24,11 +30,9 @@ function handleKeyDown() {
       break;
     default:
       const inputIsValid =
-        input.innerText.length <= 32 &&
-        event.key.length === 1 &&
-        event.key.match(/\w/g);
+        input.innerText.length <= 32 && key.length === 1 && key.match(/\w/g);
 
-      if (inputIsValid) input.innerText += event.key;
+      if (inputIsValid) input.innerText += key;
   }
 }
 

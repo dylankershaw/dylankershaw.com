@@ -159,4 +159,10 @@ body {
   bottom: 2rem;
   left: 1rem;
 }
+
+.main-page__dummy-input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
 /*# sourceMappingURL=index.css.map */
