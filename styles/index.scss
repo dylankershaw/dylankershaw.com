@@ -43,21 +43,17 @@ body {
 .main-page {
   height: calc(var(--vh, 1vh) * 100);
   position: relative;
-  padding-left: 15%;
-  width: 100vw;
-
+  
   &__links {
     display: flex;
+    margin-left: 15vw;
+    position: absolute;
+    height: fit-content;
     flex-direction: column;
-
-    &--vertically-centered {
-      height: fit-content;
-      position: absolute;
-      margin-top: auto;
-      margin-bottom: auto;
-      bottom: 0;
-      top: 0;
-    }
+    margin-bottom: auto;
+    margin-top: auto;
+    bottom: 0;
+    top: 0;
   }
 
   &__link {
