@@ -42,11 +42,15 @@ function handleSubmit(command) {
   switch (command) {
     case '':
       break;
+    case 'help':
+      responseEl.innerText = 'Here are some commands to try:\nscroll';
+      break;
     case 'scroll':
       trippyScroll();
       break;
     default:
-      responseEl.innerText = command + ': command not found';
+      responseEl.innerText =
+        command + ": command not found. Try entering 'help'.";
   }
 }
 
