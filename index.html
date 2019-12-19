@@ -1,5 +1,3 @@
-<!-- TODO: command line navigation -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,10 +24,7 @@
   <body>
     <main>
       <section class="main-page">
-        <div
-          class="main-page__links"
-          role="navigation"
-        >
+        <div class="main-page__links" role="navigation">
           <a
             class="main-page__link main-page__link--linkedin"
             href="https://www.linkedin.com/in/dylankershaw/"
@@ -45,9 +40,10 @@
             >GIT_HUB</a
           >
         </div>
-        <button class="main-page__do-not-press-button" onClick="trippyScroll()">
-          DO NOT CLICK: $
-        </button>
+        <div class="main-page__command-line" role="region">
+          <div class="main-page__command-line-response" role="alert"></div>
+          <div class="main-page__command-line-input" role="textbox"></div>
+        </div>
       </section>
     </main>
   </body>

@@ -42,6 +42,7 @@
 
 html {
   font-size: 16px;
+  overflow: hidden;
   background-color: #120e14;
 }
 
@@ -115,36 +116,47 @@ body {
   background-color: #00aa00;
 }
 
-.main-page__do-not-press-button {
-  -webkit-animation: FADE-IN 1.5s 4s both;
-          animation: FADE-IN 1.5s 4s both;
-  font-family: "Fira Mono", monospace;
+.main-page__command-line-input {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   position: absolute;
   color: #b9b4a9;
   background: none;
-  font-size: 1rem;
   border: none;
   bottom: 1rem;
+  left: 1rem;
 }
 
-.main-page__do-not-press-button:focus {
+.main-page__command-line-input:focus {
   outline: none;
 }
 
-.main-page__do-not-press-button:hover {
-  cursor: pointer;
-  text-decoration: line-through;
+.main-page__command-line-input::before {
+  content: '$';
 }
 
-.main-page__do-not-press-button::after {
+.main-page__command-line-input::after {
   content: '';
   height: 100%;
   width: 0.5rem;
   background-color: #00aa00;
-  -webkit-animation: BLINK-CURSOR 2s infinite both;
-          animation: BLINK-CURSOR 2s infinite both;
+  -webkit-animation: BLINK-CURSOR 1.25s infinite;
+          animation: BLINK-CURSOR 1.25s infinite;
   position: absolute;
-  right: -0.75rem;
+  right: -0.5rem;
   top: 0;
+}
+
+.main-page__command-line-response {
+  max-width: calc(100vw - 1rem);
+  margin-bottom: 0.25em;
+  position: absolute;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  color: #b9b4a9;
+  bottom: 2rem;
+  left: 1rem;
 }
 /*# sourceMappingURL=index.css.map */

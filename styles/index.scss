@@ -26,6 +26,7 @@ $off-white: #b9b4a9;
 
 html {
   font-size: 16px;
+  overflow: hidden;
   background-color: $dusty-black;
 }
 
@@ -43,7 +44,7 @@ body {
 .main-page {
   height: calc(var(--vh, 1vh) * 100);
   position: relative;
-  
+
   &__links {
     display: flex;
     margin-left: 15vw;
@@ -85,23 +86,21 @@ body {
     }
   }
 
-  &__do-not-press-button {
-    animation: FADE-IN 1.5s 4s both;
-    font-family: $font;
+  &__command-line-input {
+    height: fit-content;
     position: absolute;
     color: $off-white;
     background: none;
-    font-size: 1rem;
     border: none;
     bottom: 1rem;
+    left: 1rem;
 
     &:focus {
       outline: none;
     }
 
-    &:hover {
-      cursor: pointer;
-      text-decoration: line-through;
+    &::before {
+      content: '$';
     }
 
     &::after {
@@ -109,10 +108,20 @@ body {
       height: 100%;
       width: 0.5rem;
       background-color: #00aa00;
-      animation: BLINK-CURSOR 2s infinite both;
+      animation: BLINK-CURSOR 1.25s infinite;
       position: absolute;
-      right: -0.75rem;
+      right: -0.5rem;
       top: 0;
     }
+  }
+
+  &__command-line-response {
+    max-width: calc(100vw - 1rem);
+    margin-bottom: 0.25em;
+    position: absolute;
+    width: max-content;
+    color: $off-white;
+    bottom: 2rem;
+    left: 1rem;
   }
 }
