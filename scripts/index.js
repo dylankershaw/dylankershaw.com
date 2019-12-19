@@ -15,7 +15,7 @@ function triggerKeyboardOnMobile() {
 }
 
 function closeKeyboardOnMobile() {
-  if (event.key === "Enter") event.target.blur()
+  if (event.key === 'Enter') event.target.blur();
 }
 
 function handleKeyDown(key) {
@@ -36,7 +36,7 @@ function handleKeyDown(key) {
       const inputIsValid =
         input.innerText.length <= 32 && key.length === 1 && key.match(/\w/g);
 
-      if (inputIsValid) input.innerText += key;
+      if (inputIsValid) input.innerText += key.toLowerCase();
   }
 }
 
