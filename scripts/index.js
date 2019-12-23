@@ -12,6 +12,7 @@ const asyncTimeout = ms => new Promise(resolve => setTimeout(resolve, ms));
 function triggerKeyboardOnMobile() {
   const input = document.getElementsByClassName('main-page__dummy-input')[0];
   if (event.target.tagName !== 'A') input.focus();
+  window.scrollTo(0, document.body.scrollHeight);
 }
 
 function closeKeyboardOnMobile() {
