@@ -91,3 +91,12 @@ async function trippyScroll() {
     if (i > 0) el.remove();
   });
 }
+
+function trackLinkClick() {
+  ga('send', {
+    hitType: 'event',
+    eventCategory: 'Link',
+    eventAction: 'click',
+    eventLabel: event.target.innerText
+  });
+}
