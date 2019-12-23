@@ -61,6 +61,8 @@ function handleSubmit(command) {
       responseEl.innerText =
         command + ": command not found. Try entering 'help'.";
   }
+
+  trackInputSubmit(command);
 }
 
 async function trippyScroll() {
@@ -98,5 +100,14 @@ function trackLinkClick() {
     eventCategory: 'Link',
     eventAction: 'click',
     eventLabel: event.target.innerText
+  });
+}
+
+function trackInputSubmit(value) {
+  ga('send', {
+    hitType: 'event',
+    eventCategory: 'Input',
+    eventAction: 'submit',
+    eventLabel: value
   });
 }
