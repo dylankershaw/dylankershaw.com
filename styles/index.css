@@ -164,5 +164,7 @@ body {
   width: 0;
   height: 0;
   opacity: 0;
+  bottom: 1rem;
+  position: absolute;
 }
 /*# sourceMappingURL=index.css.map */
