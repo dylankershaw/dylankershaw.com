@@ -104,16 +104,24 @@ body {
   transition: height 0.25s;
 }
 
-.main-page__link:hover::before {
-  position: absolute;
-  opacity: 0.9;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  left: -0.25rem;
-  bottom: -0.5rem;
-  padding: 0.25rem 0.25rem;
-  background-color: #00aa00;
+@media only screen and (min-width: 900px) {
+  .main-page__link:hover::before {
+    position: absolute;
+    opacity: 0.9;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    left: -0.25rem;
+    bottom: -0.5rem;
+    padding: 0.25rem 0.25rem;
+    background-color: #00aa00;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .main-page__link:focus {
+    color: #00aa00;
+  }
 }
 
 .main-page__command-line-input {

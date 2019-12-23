@@ -74,15 +74,23 @@ body {
     }
 
     &:hover::before {
-      position: absolute;
-      opacity: 0.9;
-      height: 100%;
-      width: 100%;
-      z-index: -1;
-      left: -0.25rem;
-      bottom: -0.5rem;
-      padding: 0.25rem 0.25rem;
-      background-color: $terminal-green;
+      @media only screen and (min-width: 900px) {
+        position: absolute;
+        opacity: 0.9;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        left: -0.25rem;
+        bottom: -0.5rem;
+        padding: 0.25rem 0.25rem;
+        background-color: $terminal-green;
+      }
+    }
+
+    &:focus {
+      @media only screen and (max-width: 900px) {
+        color: $terminal-green;
+      }
     }
   }
 
