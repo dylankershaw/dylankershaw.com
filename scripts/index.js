@@ -99,7 +99,8 @@ function trackLinkClick() {
     hitType: 'event',
     eventCategory: 'Link',
     eventAction: 'click',
-    eventLabel: event.target.innerText
+    eventLabel: event.target.innerText,
+    transport: 'beacon'
   });
 }
 
