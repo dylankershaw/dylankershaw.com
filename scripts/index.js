@@ -52,7 +52,7 @@ function handleSubmit(command) {
     case '':
       break;
     case 'help':
-      responseEl.innerText = 'Here are some commands to try:\nscroll';
+      responseEl.innerText = "Here's a fun one to try:\nscroll";
       break;
     case 'scroll':
       trippyScroll();
