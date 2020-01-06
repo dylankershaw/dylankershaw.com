@@ -5,33 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!---------------------- GA start ---------------------->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-57131649-2"
-      onload="ga('create', 'UA-57131649-2', 'auto');"
-    ></script>
-    <script>
-      var isLocal = ['localhost', '127.0.0.1'].includes(
-        window.location.hostname
-      );
-      if (isLocal) window['ga-disable-UA-57131649-2'] = true;
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'UA-57131649-2');
-    </script>
-    <script>
-      window['GoogleAnalyticsObject'] = 'ga';
-      window['ga'] =
-        window['ga'] ||
-        function() {
-          (window['ga'].q = window['ga'].q || []).push(arguments);
-        };
-    </script>
-    <!---------------------- GA end ---------------------->
+  <!-- Google Analytics -->
+  <script>
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+    ga('create', 'UA-57131649-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <!-- End Google Analytics -->
 
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link
