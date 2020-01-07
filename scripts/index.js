@@ -41,6 +41,10 @@ function handleKeyDown(key) {
   }
 }
 
+function greenTextSpan(text) {
+  return `<span class='main-page__command-line-response--green-text'>${text}</span>`;
+}
+
 function handleSubmit(command) {
   const responseEl = document.getElementsByClassName(
     'main-page__command-line-response'
@@ -52,14 +56,16 @@ function handleSubmit(command) {
     case '':
       break;
     case 'help':
-      responseEl.innerText = "Here's a fun one to try:\nscroll";
+      responseEl.innerHTML = `Here's a fun one to try:\n${greenTextSpan(
+        'scroll'
+      )}`;
       break;
     case 'scroll':
       trippyScroll();
       break;
     default:
-      responseEl.innerText =
-        command + ": command not found. Try entering 'help'.";
+      responseEl.innerHTML =
+        command + `: command not found. Try entering ${greenTextSpan('help')}.`;
   }
 
   trackInputSubmit(command);

@@ -115,7 +115,7 @@ body {
       content: '';
       height: 100%;
       width: 0.5rem;
-      background-color: #00aa00;
+      background-color: $terminal-green;
       animation: BLINK-CURSOR 1.25s infinite;
       position: absolute;
       right: -0.5rem;
@@ -131,6 +131,10 @@ body {
     color: $off-white;
     bottom: 2rem;
     left: 1rem;
+
+    &--green-text {
+      color: $terminal-green;
+    }
   }
 
   &__dummy-input {
