@@ -3,15 +3,6 @@ $terminal-green: #00aa00;
 $dusty-black: #120e14;
 $off-white: #b9b4a9;
 
-@keyframes FADE-IN {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes BLINK-CURSOR {
   0% {
     opacity: 0;
@@ -45,63 +36,19 @@ body {
   height: calc(var(--vh, 1vh) * 100);
   position: relative;
 
-  &__links {
-    display: flex;
-    margin-left: 15vw;
-    position: absolute;
-    height: fit-content;
-    flex-direction: column;
-    margin-bottom: auto;
-    margin-top: auto;
-    bottom: 0;
-    top: 0;
-  }
-
-  &__link {
-    text-decoration: none;
-    width: fit-content;
+  &__command-line {
+    margin-left: 0.5rem;
     position: relative;
-    color: $off-white;
-    font-size: 3rem;
-    line-height: 1;
-    height: 3rem;
-    margin-top: 0.5rem;
-
-    &::before {
-      content: '';
-      height: 0;
-      transition: height 0.25s;
-    }
-
-    &:hover::before {
-      @media only screen and (min-width: 900px) {
-        position: absolute;
-        opacity: 0.9;
-        height: 100%;
-        width: 100%;
-        z-index: -1;
-        left: -0.25rem;
-        bottom: -0.5rem;
-        padding: 0.25rem 0.25rem;
-        background-color: $terminal-green;
-      }
-    }
-
-    &:focus {
-      @media only screen and (max-width: 900px) {
-        color: $terminal-green;
-      }
-    }
+    margin-top: 1rem;
   }
 
   &__command-line-input {
     height: fit-content;
-    position: absolute;
+    width: fit-content;
+    position: relative;
     color: $off-white;
     background: none;
     border: none;
-    bottom: 1rem;
-    left: 1rem;
 
     &:focus {
       outline: none;
@@ -125,12 +72,8 @@ body {
 
   &__command-line-response {
     max-width: calc(100vw - 1rem);
-    margin-bottom: 0.25em;
-    position: absolute;
     width: max-content;
     color: $off-white;
-    bottom: 2rem;
-    left: 1rem;
 
     &--green-text {
       color: $terminal-green;

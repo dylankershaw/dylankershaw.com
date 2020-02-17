@@ -11,8 +11,7 @@ const asyncTimeout = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 function triggerKeyboardOnMobile() {
   const input = document.getElementsByClassName('main-page__dummy-input')[0];
-  if (event.target.tagName !== 'A') input.focus();
-  window.scrollTo(0, document.body.scrollHeight);
+  input.focus();
 }
 
 function closeKeyboardOnMobile() {
@@ -20,9 +19,7 @@ function closeKeyboardOnMobile() {
 }
 
 function handleKeyDown(key) {
-  const input = document.getElementsByClassName(
-    'main-page__command-line-input'
-  )[0];
+  const input = document.getElementsByClassName('main-page__command-line-input')[0];
 
   switch (key) {
     case 'Backspace':
@@ -34,8 +31,7 @@ function handleKeyDown(key) {
       handleSubmit(command);
       break;
     default:
-      const inputIsValid =
-        input.innerText.length <= 32 && key.length === 1 && key.match(/\w/g);
+      const inputIsValid = input.innerText.length <= 32 && key.length === 1 && key.match(/\w/g);
 
       if (inputIsValid) input.innerText += key.toLowerCase();
   }
@@ -45,27 +41,32 @@ function greenTextSpan(text) {
   return `<span class='main-page__command-line-response--green-text'>${text}</span>`;
 }
 
-function handleSubmit(command) {
-  const responseEl = document.getElementsByClassName(
-    'main-page__command-line-response'
-  )[0];
-
-  responseEl.innerText = '';
+async function handleSubmit(command) {
+  const responseEl = document.getElementsByClassName('main-page__command-line-response')[0];
 
   switch (command) {
     case '':
+      responseEl.innerText = '';
+      break;
+    case 'linkedin':
+      window.open('https://www.linkedin.com/in/dylankershaw/', '_blank');
+      break;
+    case 'github':
+      window.open('https://github.com/dylankershaw/', '_blank');
       break;
     case 'help':
-      responseEl.innerHTML = `Here's a fun one to try:\n${greenTextSpan(
-        'scroll'
-      )}`;
+      responseEl.innerHTML = `
+      <span>Here are some commands to try:</span>
+      <div>${greenTextSpan('linkedin')}</div>
+      <div>${greenTextSpan('github')}</div>
+      <div>${greenTextSpan('scroll')}</div>
+      `;
       break;
     case 'scroll':
       trippyScroll();
       break;
     default:
-      responseEl.innerHTML =
-        command + `: command not found. Try entering ${greenTextSpan('help')}.`;
+      responseEl.innerHTML = command + `: command not found. Try entering ${greenTextSpan('help')}.`;
   }
 
   trackInputSubmit(command);
@@ -95,18 +96,10 @@ async function trippyScroll() {
 
   await asyncTimeout(8000);
 
+  window.scrollTo(0, 0);
+
   document.querySelectorAll('.main-page').forEach((el, i) => {
     if (i > 0) el.remove();
-  });
-}
-
-function trackLinkClick() {
-  ga('send', {
-    hitType: 'event',
-    eventCategory: 'Link',
-    eventAction: 'click',
-    eventLabel: event.target.innerText,
-    transport: 'beacon'
   });
 }
 
