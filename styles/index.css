@@ -22,10 +22,56 @@
   }
 }
 
+@-webkit-keyframes GRADIENT {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes GRADIENT {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 html {
   font-size: 16px;
   overflow: hidden;
   background-color: #120e14;
+}
+
+html.lava {
+  background: -webkit-gradient(linear, right top, left top, from(#ff5d00), color-stop(red), to(#ff0050));
+  background: linear-gradient(270deg, #ff5d00, red, #ff0050);
+  -webkit-animation: GRADIENT 4s ease infinite;
+          animation: GRADIENT 4s ease infinite;
+  background-color: #ff0000;
+  background-size: 600% 600%;
+}
+
+html.lava .main-page__command-line-input::after {
+  background-color: #00ffff;
+}
+
+html.lava .main-page__command-line-response--suggestion {
+  color: #00ffff;
+}
+
+html.lava .main-page__command-line-input,
+html.lava .main-page__command-line-response {
+  color: white;
 }
 
 * {
@@ -94,7 +140,7 @@ body {
   color: #b9b4a9;
 }
 
-.main-page__command-line-response--green-text {
+.main-page__command-line-response--suggestion {
   color: #00aa00;
 }
 

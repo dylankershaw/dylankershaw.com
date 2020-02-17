@@ -36,9 +36,9 @@ function handleKeyDown(key) {
   }
 }
 
-function linkEl(text, inline = false) {
+function suggestion(text, inline = false) {
   const elType = inline ? 'span' : 'div';
-  return `<${elType} class='main-page__command-line-response--green-text'>${text}</${elType}>`;
+  return `<${elType} class='main-page__command-line-response--suggestion'>${text}</${elType}>`;
 }
 
 async function handleSubmit(command) {
@@ -57,10 +57,11 @@ async function handleSubmit(command) {
     case 'help':
       responseEl.innerHTML = `
       <span>Here are some commands to try:</span>
-      ${linkEl('linkedin')}
-      ${linkEl('github')}
-      ${linkEl('scroll')}
-      ${linkEl('link.random')}
+      ${suggestion('linkedin')}
+      ${suggestion('github')}
+      ${suggestion('scroll')}
+      ${suggestion('link.random')}
+      ${suggestion('lava')}
       `;
       break;
     case 'scroll':
@@ -75,12 +76,15 @@ async function handleSubmit(command) {
         'https://en.wikipedia.org/wiki/Pantone_448_C',
         'https://insidemymind.me/2020/01/28/today-i-learned-that-not-everyone-has-an-internal-monologue-and-it-has-ruined-my-day'
       ];
-      
+
       const linkToOpen = links[Math.floor(Math.random() * links.length)];
       window.open(linkToOpen, '_blank');
       break;
+    case 'lava':
+      document.documentElement.classList.add('lava');
+      break;
     default:
-      responseEl.innerHTML = command + `: command not found. Try entering ${linkEl('help', true)}.`;
+      responseEl.innerHTML = command + `: command not found. Try entering ${suggestion('help', true)}.`;
   }
 
   trackInputSubmit(command);

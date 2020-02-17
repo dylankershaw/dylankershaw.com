@@ -1,5 +1,6 @@
 $font: 'Fira Mono', monospace;
 $terminal-green: #00aa00;
+$terminal-blue: #00ffff;
 $dusty-black: #120e14;
 $off-white: #b9b4a9;
 
@@ -15,10 +16,45 @@ $off-white: #b9b4a9;
   }
 }
 
+@keyframes GRADIENT {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 html {
   font-size: 16px;
   overflow: hidden;
   background-color: $dusty-black;
+
+  &.lava {
+    background: linear-gradient(270deg, #ff5d00, red, #ff0050);
+    animation: GRADIENT 4s ease infinite;
+    background-color: #ff0000;
+    background-size: 600% 600%;
+
+    // this could be easily overridden
+    .main-page__command-line-input::after {
+      background-color: $terminal-blue;
+    }
+
+    // this could be easily overridden
+    .main-page__command-line-response--suggestion {
+      color: $terminal-blue;
+    }
+
+    // these could be easily overridden
+    .main-page__command-line-input,
+    .main-page__command-line-response {
+      color: white;
+    }
+  }
 }
 
 * {
@@ -75,7 +111,7 @@ body {
     width: max-content;
     color: $off-white;
 
-    &--green-text {
+    &--suggestion {
       color: $terminal-green;
     }
   }
