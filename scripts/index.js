@@ -31,14 +31,14 @@ function handleKeyDown(key) {
       handleSubmit(command);
       break;
     default:
-      const inputIsValid = input.innerText.length <= 32 && key.length === 1 && key.match(/\w/g);
-
+      const inputIsValid = input.innerText.length <= 32 && key.length === 1 && key.match(/[\w.]/g);
       if (inputIsValid) input.innerText += key.toLowerCase();
   }
 }
 
-function greenTextSpan(text) {
-  return `<span class='main-page__command-line-response--green-text'>${text}</span>`;
+function linkEl(text, inline = false) {
+  const elType = inline ? 'span' : 'div';
+  return `<${elType} class='main-page__command-line-response--green-text'>${text}</${elType}>`;
 }
 
 async function handleSubmit(command) {
@@ -57,16 +57,30 @@ async function handleSubmit(command) {
     case 'help':
       responseEl.innerHTML = `
       <span>Here are some commands to try:</span>
-      <div>${greenTextSpan('linkedin')}</div>
-      <div>${greenTextSpan('github')}</div>
-      <div>${greenTextSpan('scroll')}</div>
+      ${linkEl('linkedin')}
+      ${linkEl('github')}
+      ${linkEl('scroll')}
+      ${linkEl('link.random')}
       `;
       break;
     case 'scroll':
       trippyScroll();
       break;
+    case 'link.random':
+      const links = [
+        'http://www.overcomingbias.com/2020/01/how-bees-argue.html',
+        'https://en.wikipedia.org/wiki/Nominative_determinism',
+        'http://edition.cnn.com/EVENTS/1996/year.in.review',
+        'https://evrone.com/yukihiro-matsumoto-interview',
+        'https://en.wikipedia.org/wiki/Pantone_448_C',
+        'https://insidemymind.me/2020/01/28/today-i-learned-that-not-everyone-has-an-internal-monologue-and-it-has-ruined-my-day'
+      ];
+      
+      const linkToOpen = links[Math.floor(Math.random() * links.length)];
+      window.open(linkToOpen, '_blank');
+      break;
     default:
-      responseEl.innerHTML = command + `: command not found. Try entering ${greenTextSpan('help')}.`;
+      responseEl.innerHTML = command + `: command not found. Try entering ${linkEl('help', true)}.`;
   }
 
   trackInputSubmit(command);
