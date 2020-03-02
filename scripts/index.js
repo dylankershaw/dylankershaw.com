@@ -68,6 +68,7 @@ async function handleSubmit(command) {
       trippyScroll();
       break;
     case 'link.random':
+      // TODO: put these into a JSON file
       const links = [
         'http://www.overcomingbias.com/2020/01/how-bees-argue.html',
         'https://en.wikipedia.org/wiki/Nominative_determinism',
@@ -82,7 +83,9 @@ async function handleSubmit(command) {
         'https://github.com/fpereiro/backendlore',
         'https://github.com/Swizec/thaw-carrots',
         'https://github.com/kkuchta/css-only-chat',
-        'https://github.com/hakluke/how-to-exit-vim'
+        'https://github.com/hakluke/how-to-exit-vim',
+        'https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/',
+        'http://paulgraham.com/genius.html'
       ];
 
       const linkToOpen = links[Math.floor(Math.random() * links.length)];
