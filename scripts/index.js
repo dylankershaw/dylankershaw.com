@@ -86,7 +86,8 @@ async function handleSubmit(command) {
         'https://github.com/hakluke/how-to-exit-vim',
         'https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/',
         'http://paulgraham.com/genius.html',
-        'https://en.wikipedia.org/wiki/Sound-powered_telephone'
+        'https://en.wikipedia.org/wiki/Sound-powered_telephone',
+        'https://en.wikipedia.org/wiki/Bus_factor'
       ];
 
       const linkToOpen = links[Math.floor(Math.random() * links.length)];
