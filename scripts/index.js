@@ -59,9 +59,9 @@ async function handleSubmit(command) {
       <span>Here are some commands to try:</span>
       ${suggestion('linkedin')}
       ${suggestion('github')}
+      ${suggestion('lava')}
       ${suggestion('scroll')}
       ${suggestion('link.random')}
-      ${suggestion('lava')}
       `;
       break;
     case 'scroll':
