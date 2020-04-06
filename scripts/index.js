@@ -88,7 +88,8 @@ async function handleSubmit(command) {
         'http://paulgraham.com/genius.html',
         'https://en.wikipedia.org/wiki/Sound-powered_telephone',
         'https://en.wikipedia.org/wiki/Bus_factor',
-        'https://blog.repl.it/clui'
+        'https://blog.repl.it/clui',
+        'https://www.gkogan.co/blog/simple-systems/'
       ];
 
       const linkToOpen = links[Math.floor(Math.random() * links.length)];
