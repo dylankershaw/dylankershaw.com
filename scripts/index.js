@@ -57,8 +57,8 @@ async function handleSubmit(command) {
     case 'help':
       responseEl.innerHTML = `
       <span>Here are some commands to try:</span>
-      ${suggestion('linkedin')}
       ${suggestion('github')}
+      ${suggestion('linkedin')}
       ${suggestion('lava')}
       ${suggestion('scroll')}
       ${suggestion('link.random')}
