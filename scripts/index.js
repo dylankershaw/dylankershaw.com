@@ -89,7 +89,9 @@ async function handleSubmit(command) {
         'https://en.wikipedia.org/wiki/Sound-powered_telephone',
         'https://en.wikipedia.org/wiki/Bus_factor',
         'https://blog.repl.it/clui',
-        'https://www.gkogan.co/blog/simple-systems/'
+        'https://www.gkogan.co/blog/simple-systems/',
+        'https://en.wikipedia.org/wiki/Category:Obsolete_occupations',
+        'https://en.wikipedia.org/wiki/Timeline_of_the_far_future'
       ];
 
       const linkToOpen = links[Math.floor(Math.random() * links.length)];
