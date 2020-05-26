@@ -11,8 +11,7 @@ const asyncTimeout = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 function triggerKeyboardOnMobile() {
   const input = document.getElementsByClassName('main-page__dummy-input')[0];
-  if (event.target.tagName !== 'A') input.focus();
-  window.scrollTo(0, document.body.scrollHeight);
+  input.focus();
 }
 
 function closeKeyboardOnMobile() {
@@ -20,9 +19,7 @@ function closeKeyboardOnMobile() {
 }
 
 function handleKeyDown(key) {
-  const input = document.getElementsByClassName(
-    'main-page__command-line-input'
-  )[0];
+  const input = document.getElementsByClassName('main-page__command-line-input')[0];
 
   switch (key) {
     case 'Backspace':
@@ -34,32 +31,75 @@ function handleKeyDown(key) {
       handleSubmit(command);
       break;
     default:
-      const inputIsValid =
-        input.innerText.length <= 32 && key.length === 1 && key.match(/\w/g);
-
+      const inputIsValid = input.innerText.length <= 32 && key.length === 1 && key.match(/[\w.]/g);
       if (inputIsValid) input.innerText += key.toLowerCase();
   }
 }
 
-function handleSubmit(command) {
-  const responseEl = document.getElementsByClassName(
-    'main-page__command-line-response'
-  )[0];
+function suggestion(text, inline = false) {
+  const elType = inline ? 'span' : 'div';
+  return `<${elType} class='main-page__command-line-response--suggestion'>${text}</${elType}>`;
+}
 
-  responseEl.innerText = '';
+async function handleSubmit(command) {
+  const responseEl = document.getElementsByClassName('main-page__command-line-response')[0];
 
   switch (command) {
     case '':
+      responseEl.innerText = '';
+      break;
+    case 'linkedin':
+      window.open('https://www.linkedin.com/in/dylankershaw/', '_blank');
+      break;
+    case 'github':
+      window.open('https://github.com/dylankershaw/', '_blank');
       break;
     case 'help':
-      responseEl.innerText = "Here's a fun one to try:\nscroll";
+      responseEl.innerHTML = `
+      <span>Here are some commands to try:</span>
+      ${suggestion('github')}
+      ${suggestion('linkedin')}
+      ${suggestion('lava')}
+      ${suggestion('scroll')}
+      ${suggestion('link.random')}
+      `;
       break;
     case 'scroll':
       trippyScroll();
       break;
+    case 'link.random':
+      // TODO: put these into a JSON file
+      const links = [
+        'http://www.overcomingbias.com/2020/01/how-bees-argue.html',
+        'https://en.wikipedia.org/wiki/Nominative_determinism',
+        'http://edition.cnn.com/EVENTS/1996/year.in.review',
+        'https://evrone.com/yukihiro-matsumoto-interview',
+        'https://en.wikipedia.org/wiki/Pantone_448_C',
+        'https://insidemymind.me/2020/01/28/today-i-learned-that-not-everyone-has-an-internal-monologue-and-it-has-ruined-my-day',
+        'https://waitbutwhy.com/2014/12/what-makes-you-you.html',
+        'https://waitbutwhy.com/2014/05/fermi-paradox.html',
+        'https://www.tesla.com/sites/default/files/images/careers/autopilot/network.mp4',
+        'http://www.simonweckert.com/googlemapshacks.html',
+        'https://github.com/fpereiro/backendlore',
+        'https://github.com/Swizec/thaw-carrots',
+        'https://github.com/kkuchta/css-only-chat',
+        'https://github.com/hakluke/how-to-exit-vim',
+        'https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/',
+        'http://paulgraham.com/genius.html',
+        'https://en.wikipedia.org/wiki/Sound-powered_telephone',
+        'https://en.wikipedia.org/wiki/Bus_factor',
+        'https://blog.repl.it/clui',
+        'https://www.gkogan.co/blog/simple-systems/'
+      ];
+
+      const linkToOpen = links[Math.floor(Math.random() * links.length)];
+      window.open(linkToOpen, '_blank');
+      break;
+    case 'lava':
+      document.documentElement.classList.add('lava');
+      break;
     default:
-      responseEl.innerText =
-        command + ": command not found. Try entering 'help'.";
+      responseEl.innerHTML = command + `: command not found. Try entering ${suggestion('help', true)}.`;
   }
 
   trackInputSubmit(command);
@@ -89,18 +129,10 @@ async function trippyScroll() {
 
   await asyncTimeout(8000);
 
+  window.scrollTo(0, 0);
+
   document.querySelectorAll('.main-page').forEach((el, i) => {
     if (i > 0) el.remove();
-  });
-}
-
-function trackLinkClick() {
-  ga('send', {
-    hitType: 'event',
-    eventCategory: 'Link',
-    eventAction: 'click',
-    eventLabel: event.target.innerText,
-    transport: 'beacon'
   });
 }
 
