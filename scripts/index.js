@@ -7,7 +7,7 @@ function setVh() {
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
 
-const asyncTimeout = ms => new Promise(resolve => setTimeout(resolve, ms));
+const asyncTimeout = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function triggerKeyboardOnMobile() {
   const input = document.getElementsByClassName('main-page__dummy-input')[0];
@@ -91,7 +91,7 @@ async function handleSubmit(command) {
         'https://blog.repl.it/clui',
         'https://www.gkogan.co/blog/simple-systems/',
         'https://en.wikipedia.org/wiki/Category:Obsolete_occupations',
-        'https://en.wikipedia.org/wiki/Timeline_of_the_far_future'
+        'https://en.wikipedia.org/wiki/Timeline_of_the_far_future',
       ];
 
       const linkToOpen = links[Math.floor(Math.random() * links.length)];
@@ -100,8 +100,12 @@ async function handleSubmit(command) {
     case 'lava':
       document.documentElement.classList.add('lava');
       break;
+    case 'pulsar':
+      plotPulsar();
+      break;
     default:
-      responseEl.innerHTML = command + `: command not found. Try entering ${suggestion('help', true)}.`;
+      responseEl.innerHTML =
+        command + `: command not found. Try entering ${suggestion('help', true)}.`;
   }
 
   trackInputSubmit(command);
@@ -126,7 +130,7 @@ async function trippyScroll() {
     direction: 'bottom',
     duration: 8000,
     easingPreset: 'easeInOutQuad',
-    scrollAmount: document.body.scrollHeight
+    scrollAmount: document.body.scrollHeight,
   });
 
   await asyncTimeout(8000);
@@ -143,6 +147,52 @@ function trackInputSubmit(value) {
     hitType: 'event',
     eventCategory: 'Input',
     eventAction: 'submit',
-    eventLabel: value
+    eventLabel: value,
   });
+}
+
+function plotPulsar() {
+  const height = 200;
+  const width = 200;
+  const svg = d3.select('.pulsar-container').append('svg').attr('viewBox', [0, 0, width, height]);
+  const margin = {top: 10, right: 10, bottom: 100, left: 10};
+  const data = loadJson('../pulsarData.json');
+  const overlap = 10; // TODO: this will be changed with one axis
+
+  const y = d3
+    .scalePoint()
+    .domain(data.map((d, i) => i))
+    .range([margin.top, height - margin.bottom]);
+  const x = d3
+    .scaleLinear()
+    .domain([0, data[0].length - 1])
+    .range([margin.left, width - margin.right]);
+  const z = d3
+    .scaleLinear()
+    .domain([d3.min(data, (d) => d3.min(d)), d3.max(data, (d) => d3.max(d))])
+    .range([0, -overlap * y.step()]);
+  const area = d3
+    .area()
+    .defined((d) => !isNaN(d))
+    .x((d, i) => x(i))
+    .y0(0)
+    .y1(z);
+  const line = area.lineY1();
+  const serie = svg
+    .append('g')
+    .selectAll('g')
+    .data(data)
+    .join('g')
+    .attr('transform', (d, i) => `translate(0,${y(i) + 1})`);
+
+  serie.append('path').attr('fill', '#fff').attr('d', area);
+  serie.append('path').attr('fill', 'none').attr('stroke', 'black').attr('d', line);
+}
+
+function loadJson(filePath) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('GET', filePath, false);
+  xmlhttp.overrideMimeType('application/json');
+  xmlhttp.send();
+  return JSON.parse(xmlhttp.responseText);
 }

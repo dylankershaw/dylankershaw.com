@@ -151,4 +151,12 @@ body {
   bottom: 1rem;
   position: absolute;
 }
+
+.pulsar-container {
+  width: 100vw;
+}
+
+.pulsar-container svg {
+  position: absolute;
+}
 /*# sourceMappingURL=index.css.map */
