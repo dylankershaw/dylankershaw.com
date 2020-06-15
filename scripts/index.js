@@ -92,7 +92,7 @@ async function handleSubmit(command) {
         'https://www.gkogan.co/blog/simple-systems/',
         'https://en.wikipedia.org/wiki/Category:Obsolete_occupations',
         'https://en.wikipedia.org/wiki/Timeline_of_the_far_future',
-        'http://beza1e1.tuxen.de/articles/accidentally_turing_complete.html',
+        'https://github.com/Microsoft/TypeScript/issues/14833',
       ];
 
       const linkToOpen = links[Math.floor(Math.random() * links.length)];
