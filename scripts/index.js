@@ -104,12 +104,19 @@ async function handleSubmit(command) {
     case 'pulsar':
       plotPulsar();
       break;
+    case 'ham':
+      openHam();
+      break;
     default:
       responseEl.innerHTML =
         command + `: command not found. Try entering ${suggestion('help', true)}.`;
   }
 
   trackInputSubmit(command);
+}
+
+function openHam() {
+  window.location.href = "./videos/LMM.mp4";
 }
 
 async function trippyScroll() {
