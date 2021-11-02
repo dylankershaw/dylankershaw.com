@@ -54,11 +54,15 @@ async function handleSubmit(command) {
     case 'github':
       window.open('https://github.com/dylankershaw/', '_blank');
       break;
+    case 'music':
+      window.open('https://soundcloud.com/recursedj', '_blank');
+      break;
     case 'help':
       responseEl.innerHTML = `
       <span>Here are some commands to try:</span>
       ${suggestion('github')}
       ${suggestion('linkedin')}
+      ${suggestion('music')}
       ${suggestion('lava')}
       ${suggestion('scroll')}
       ${suggestion('link.random')}
