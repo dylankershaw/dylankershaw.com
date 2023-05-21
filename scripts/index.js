@@ -79,7 +79,6 @@ async function handleSubmit(command) {
         'http://edition.cnn.com/EVENTS/1996/year.in.review',
         'https://evrone.com/yukihiro-matsumoto-interview',
         'https://en.wikipedia.org/wiki/Pantone_448_C',
-        'https://insidemymind.me/2020/01/28/today-i-learned-that-not-everyone-has-an-internal-monologue-and-it-has-ruined-my-day',
         'https://waitbutwhy.com/2014/12/what-makes-you-you.html',
         'https://waitbutwhy.com/2014/05/fermi-paradox.html',
         'https://www.tesla.com/sites/default/files/images/careers/autopilot/network.mp4',
