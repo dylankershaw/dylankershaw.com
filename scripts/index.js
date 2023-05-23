@@ -111,8 +111,6 @@ async function handleSubmit(command) {
       responseEl.innerHTML =
         command + `: command not found. Try entering ${suggestion('help', true)}.`;
   }
-
-  trackInputSubmit(command);
 }
 
 async function trippyScroll() {
@@ -143,15 +141,6 @@ async function trippyScroll() {
 
   document.querySelectorAll('.main-page').forEach((el, i) => {
     if (i > 0) el.remove();
-  });
-}
-
-function trackInputSubmit(value) {
-  ga('send', {
-    hitType: 'event',
-    eventCategory: 'Input',
-    eventAction: 'submit',
-    eventLabel: value,
   });
 }
 
